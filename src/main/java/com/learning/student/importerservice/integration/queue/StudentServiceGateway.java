@@ -1,13 +1,15 @@
 package com.learning.student.importerservice.integration.queue;
 
-import com.learning.student.importerservice.integration.model.StudentMsg;
+import com.learning.student.importerservice.integration.model.Student;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public class JSONSender {
+@Component
+@Slf4j
+public class StudentServiceGateway {
 
     @Autowired
     private AmqpTemplate jsonRabbitTemplate;
@@ -18,8 +20,8 @@ public class JSONSender {
     @Value("${spring.rabbitmq.routingkey}")
     private String routingkey;
 
-    public void send(StudentMsg student) {
+    public void convertAndSend(Student student) {
         jsonRabbitTemplate.convertAndSend(exchange, routingkey, student);
-        System.out.println("Send msg = " + student);
+        log.info("Sending message: " + student);
     }
 }

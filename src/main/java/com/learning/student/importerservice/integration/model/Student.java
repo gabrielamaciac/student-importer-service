@@ -1,17 +1,21 @@
 package com.learning.student.importerservice.integration.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
-public class StudentMsg {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student {
     private String firstName;
     private String lastName;
     private String cnp;
     private String dateOfBirth;
-    private AddressMsg address;
-    private List<GradeMsg> grades;
+    private Address address;
+    private List<Grade> grades;
 }

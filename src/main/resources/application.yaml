@@ -1,0 +1,9 @@
+queue:
+  name: ${QUEUE_NAME}
+spring:
+  rabbitmq:
+    exchange: ${EXCHANGE_TYPE}
+    routingkey: ${ROUTING_KEY}
+student:
+  file:
+    path: C:\Users\gabrielamaciac\Documents\GitHub\student

@@ -1,2 +1,2 @@
-# student-importer-service
-Parse and convert student JSON/XML to student-service
+# studentEntity-importer-service
+Parse and convert studentEntity JSON/XML to studentEntity-service

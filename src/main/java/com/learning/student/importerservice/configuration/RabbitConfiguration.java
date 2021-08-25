@@ -17,10 +17,10 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfiguration {
 
     @Value("${queue.name}")
-    String queueName;
+    private String queueName;
 
     @Value("${spring.rabbitmq.exchange}")
-    String exchange;
+    private String exchange;
 
     @Value("${spring.rabbitmq.routingkey}")
     private String routingkey;
@@ -44,7 +44,6 @@ public class RabbitConfiguration {
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
-
 
     @Bean
     public AmqpTemplate jsonRabbitTemplate(ConnectionFactory connectionFactory) {

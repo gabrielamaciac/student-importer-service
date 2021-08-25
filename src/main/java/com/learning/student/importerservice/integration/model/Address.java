@@ -1,11 +1,15 @@
 package com.learning.student.importerservice.integration.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AddressMsg {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Address {
     private String street;
     private String number;
     private String city;
