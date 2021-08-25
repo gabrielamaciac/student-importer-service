@@ -1,7 +1,7 @@
 package com.learning.student.importerservice.controller.api;
 
 import com.learning.student.importerservice.controller.model.StudentDto;
-import com.learning.student.importerservice.facade.ImporterFacade;
+import com.learning.student.importerservice.facade.ImporterFacadeImpl;
 import com.learning.student.importerservice.integration.model.Student;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ImporterController implements ImporterApi {
 
     @Autowired
-    public ImporterFacade importerFacade;
+    public ImporterFacadeImpl importerFacade;
 
     public ModelMapper modelMapper = new ModelMapper();
 

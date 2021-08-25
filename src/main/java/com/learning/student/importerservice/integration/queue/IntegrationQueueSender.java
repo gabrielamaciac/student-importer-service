@@ -16,7 +16,7 @@ import org.springframework.integration.file.filters.AcceptAllFileListFilter;
 import java.io.File;
 
 @Configuration
-public class XMLSender {
+public class IntegrationQueueSender {
     @Autowired
     private AmqpTemplate jsonRabbitTemplate;
 
