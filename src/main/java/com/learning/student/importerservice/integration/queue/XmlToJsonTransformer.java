@@ -16,15 +16,15 @@ public class XmlToJsonTransformer {
     ObjectMapper objectMapper = new ObjectMapper();
     XmlMapper xmlMapper = new XmlMapper();
 
-    public String transform(String path) {
+    public Student transform(String path) {
         try {
-            //custom xml
+            //todo custom xml
             Student student = xmlMapper.readValue(new File(path), Student.class);
             log.info("Received XML file for student:  " + student.getFirstName());
-            return objectMapper.writeValueAsString(student);
+            return student;
         } catch (IOException e) {
             log.info("Exception occurred while converting the xml to json: " + e.getMessage());
         }
-        return "";
+        return null;
     }
 }
