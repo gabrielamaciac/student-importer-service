@@ -7,9 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * Sends the Student from JSON (http request) to student-service.
+ */
 @Component
 @Slf4j
-public class StudentServiceGateway {
+public class StudentServiceSender {
+
+    private static final String STUDENT_ROUTING_KEY = "student-routing-key";
 
     @Autowired
     private AmqpTemplate jsonRabbitTemplate;
@@ -17,11 +22,8 @@ public class StudentServiceGateway {
     @Value("${spring.rabbitmq.exchange}")
     private String exchange;
 
-    @Value("${spring.rabbitmq.routingkey}")
-    private String routingkey;
-
     public void convertAndSend(Student student) {
-        jsonRabbitTemplate.convertAndSend(exchange, routingkey, student);
+        jsonRabbitTemplate.convertAndSend(exchange, STUDENT_ROUTING_KEY, student);
         log.info("Sending message: " + student);
     }
 }

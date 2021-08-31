@@ -8,7 +8,7 @@
         <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.learning.studentEntity</groupId>
+    <groupId>com.learning.student</groupId>
     <artifactId>importerservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Importer Service</name>

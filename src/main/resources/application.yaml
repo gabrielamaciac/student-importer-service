@@ -1,12 +1,12 @@
 server:
   servlet:
     contextPath: /api
-queue:
-  name: ${QUEUE_NAME}
 spring:
   rabbitmq:
-    exchange: ${EXCHANGE_TYPE}
-    routingkey: ${ROUTING_KEY}
+    exchange: amq.direct
+    studentqueue: student-queue
+    validationqueue: validation-queue
+    studentrouting: student-routing-key
 student:
   file:
     path: C:\Users\gabrielamaciac\Documents\GitHub\student

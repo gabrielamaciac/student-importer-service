@@ -1,6 +1,5 @@
 package com.learning.student.importerservice.integration.queue;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.learning.student.importerservice.integration.model.Student;
 import lombok.extern.slf4j.Slf4j;
@@ -13,12 +12,11 @@ import java.io.IOException;
 @Slf4j
 public class XmlToJsonTransformer {
 
-    ObjectMapper objectMapper = new ObjectMapper();
     XmlMapper xmlMapper = new XmlMapper();
 
     public Student transform(String path) {
         try {
-            //todo custom xml
+            //todo custom xml - use xPath
             Student student = xmlMapper.readValue(new File(path), Student.class);
             log.info("Received XML file for student:  " + student.getFirstName());
             return student;

@@ -16,14 +16,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfiguration {
 
-    @Value("${queue.name}")
-    private String queueName;
-
     @Value("${spring.rabbitmq.exchange}")
     private String exchange;
 
-    @Value("${spring.rabbitmq.routingkey}")
-    private String routingkey;
+    @Value("${spring.rabbitmq.studentqueue}")
+    private String queueName;
+
+    @Value("${spring.rabbitmq.studentrouting}")
+    private String routingKey;
 
     @Bean
     Queue queue() {
@@ -37,7 +37,7 @@ public class RabbitConfiguration {
 
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey);
+        return BindingBuilder.bind(queue).to(exchange).with(routingKey);
     }
 
     @Bean

@@ -1,7 +1,7 @@
 package com.learning.student.importerservice.service.impl;
 
 import com.learning.student.importerservice.integration.model.Student;
-import com.learning.student.importerservice.integration.queue.StudentServiceGateway;
+import com.learning.student.importerservice.integration.queue.StudentServiceSender;
 import com.learning.student.importerservice.service.ImporterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 public class ImporterServiceImpl implements ImporterService {
 
     @Autowired
-    public StudentServiceGateway studentServiceGateway;
+    public StudentServiceSender studentServiceSender;
 
-    public ImporterServiceImpl(StudentServiceGateway studentServiceGateway) {
-        this.studentServiceGateway = studentServiceGateway;
+    public ImporterServiceImpl(StudentServiceSender studentServiceSender) {
+        this.studentServiceSender = studentServiceSender;
     }
 
     @Override
     public void importStudent(Student student) {
-        studentServiceGateway.convertAndSend(student);
+        studentServiceSender.convertAndSend(student);
     }
 }

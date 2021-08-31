@@ -15,8 +15,12 @@ import org.springframework.integration.file.filters.AcceptAllFileListFilter;
 
 import java.io.File;
 
+/**
+ * Sends the Student from an .xml file to student-service. Reads the file on every CREATE/ MODIFY event.
+ */
 @Configuration
 public class IntegrationQueueSender {
+
     @Autowired
     private AmqpTemplate jsonRabbitTemplate;
 
@@ -26,11 +30,11 @@ public class IntegrationQueueSender {
     @Value("${student.file.path}")
     private String path;
 
-    @Value("${spring.rabbitmq.routingkey}")
-    private String routingkey;
-
     @Value("${spring.rabbitmq.exchange}")
     private String exchange;
+
+    @Value("${spring.rabbitmq.studentrouting}")
+    private String routingKey;
 
     @Bean
     public IntegrationFlow integrationFlow() {
@@ -40,7 +44,7 @@ public class IntegrationQueueSender {
                 .log()
                 .transform(xmlToJsonTransformer, "transform")
                 .log()
-                .handle(Amqp.outboundAdapter(jsonRabbitTemplate).routingKey(routingkey).exchangeName(exchange))
+                .handle(Amqp.outboundAdapter(jsonRabbitTemplate).routingKey(routingKey).exchangeName(exchange))
                 .log()
                 .get();
     }
