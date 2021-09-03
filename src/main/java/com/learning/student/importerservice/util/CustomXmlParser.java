@@ -31,11 +31,10 @@ import java.util.List;
 @Getter
 @Slf4j
 public class CustomXmlParser {
-    private File file;
+    private final File file;
 
     public Student getStudentFromXml() {
-        try {
-            FileInputStream fileIS = new FileInputStream(this.getFile());
+        try (FileInputStream fileIS = new FileInputStream(this.getFile())) {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -117,12 +116,7 @@ public class CustomXmlParser {
                     //set each mark in the marks array
                     Mark markObject = new Mark();
                     markObject.setDateReceived(dateReceived);
-                    try {
-                        markObject.setMark(Double.parseDouble(mark));
-                    } catch (NumberFormatException ex) {
-                        //default mark if input is not a digit
-                        markObject.setMark(0.0);
-                    }
+                    markObject.setMark(parseMark(mark));
                     markList.add(markObject);
                 }
                 grade.setMarks(markList);
@@ -132,5 +126,14 @@ public class CustomXmlParser {
             log.error("Exception while parsing the xml nodes for grade: " + e);
         }
         return gradeList;
+    }
+
+    private Double parseMark(String mark) {
+        try {
+            return Double.parseDouble(mark);
+        } catch (NumberFormatException ex) {
+            //default mark if input is not a digit
+            return 0.0;
+        }
     }
 }

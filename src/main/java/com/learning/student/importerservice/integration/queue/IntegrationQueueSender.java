@@ -1,7 +1,6 @@
 package com.learning.student.importerservice.integration.queue;
 
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,12 +20,6 @@ import java.io.File;
 @Configuration
 public class IntegrationQueueSender {
 
-    @Autowired
-    private AmqpTemplate jsonRabbitTemplate;
-
-    @Autowired
-    private XmlToJsonTransformer xmlToJsonTransformer;
-
     @Value("${student.file.path}")
     private String path;
 
@@ -37,7 +30,7 @@ public class IntegrationQueueSender {
     private String routingKey;
 
     @Bean
-    public IntegrationFlow integrationFlow() {
+    public IntegrationFlow integrationFlow(AmqpTemplate jsonRabbitTemplate, XmlToJsonTransformer xmlToJsonTransformer) {
         return IntegrationFlows.from(sourceDirectory(),
                 spec -> spec.poller(Pollers.fixedRate(5000)))
                 .filter(source -> ((File) source).getName().endsWith(".xml"))

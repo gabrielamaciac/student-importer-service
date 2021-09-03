@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/student")
 public class ImporterController implements ImporterApi {
 
+    private final ModelMapper modelMapper = new ModelMapper();
+
     @Autowired
     public ImporterFacadeImpl importerFacade;
-
-    public ModelMapper modelMapper = new ModelMapper();
 
     @Override
     @PostMapping("/import")
