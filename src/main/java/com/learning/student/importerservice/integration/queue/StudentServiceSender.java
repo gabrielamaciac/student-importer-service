@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class StudentServiceSender {
 
-    private static final String STUDENT_ROUTING_KEY = "student-routing-key";
+    @Value("${spring.rabbitmq.studentrouting}")
+    private String routingKey;
 
     @Autowired
     private AmqpTemplate jsonRabbitTemplate;
@@ -23,7 +24,7 @@ public class StudentServiceSender {
     private String exchange;
 
     public void convertAndSend(Student student) {
-        jsonRabbitTemplate.convertAndSend(exchange, STUDENT_ROUTING_KEY, student);
+        jsonRabbitTemplate.convertAndSend(exchange, routingKey, student);
         log.info("Sending message: " + student);
     }
 }
