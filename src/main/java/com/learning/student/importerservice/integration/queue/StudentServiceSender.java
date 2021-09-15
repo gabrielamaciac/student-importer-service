@@ -25,6 +25,6 @@ public class StudentServiceSender {
 
     public void convertAndSend(Student student) {
         jsonRabbitTemplate.convertAndSend(exchange, routingKey, student);
-        log.info("Sending message: " + student);
+        log.info("Sending student to queue: " + student.getFirstName());
     }
 }
