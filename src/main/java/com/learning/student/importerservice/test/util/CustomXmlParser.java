@@ -1,4 +1,4 @@
-package com.learning.student.importerservice.util;
+package com.learning.student.importerservice.test.util;
 
 import com.learning.student.importerservice.integration.model.Address;
 import com.learning.student.importerservice.integration.model.Grade;
@@ -45,12 +45,12 @@ public class CustomXmlParser {
             // Convert the xml to Student
             return parseStudent(xmlDocument, xPath);
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            log.error("Error while parsing the xml document for student: " + e);
+            log.error("Error while parsing the xml document for student: ", e);
         }
         return null;
     }
 
-    public Student parseStudent(Document doc, XPath xPath) {
+    private Student parseStudent(Document doc, XPath xPath) {
         try {
             Student student = new Student();
             // Get all nodes that are immediate children of the student and set them
@@ -80,7 +80,7 @@ public class CustomXmlParser {
 
             return student;
         } catch (XPathExpressionException e) {
-            log.error("Exception while parsing the xml nodes for student: " + e);
+            log.error("Exception while parsing the xml nodes for student: ", e);
         }
         return null;
     }
@@ -88,6 +88,8 @@ public class CustomXmlParser {
     private List<Grade> getGradeList(Document doc, XPath xPath) {
         List<Grade> gradeList = new ArrayList<>();
         try {
+            //TODO .//grades -> List<Element> -> stream .//marks
+
             // Get all grades and iterate over them to construct the Grade object
             NodeList grades = (NodeList) xPath.evaluate("student//grades", doc, XPathConstants.NODESET);
             for (int i = 0; i < grades.getLength(); i++) {
@@ -111,7 +113,7 @@ public class CustomXmlParser {
                 gradeList.add(grade);
             }
         } catch (XPathExpressionException e) {
-            log.error("Exception while parsing the xml nodes for grade: " + e);
+            log.error("Exception while parsing the xml nodes for grade: ", e);
         }
         return gradeList;
     }

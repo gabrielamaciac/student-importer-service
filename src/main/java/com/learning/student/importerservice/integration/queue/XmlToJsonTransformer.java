@@ -1,7 +1,7 @@
 package com.learning.student.importerservice.integration.queue;
 
 import com.learning.student.importerservice.integration.model.Student;
-import com.learning.student.importerservice.util.CustomXmlParser;
+import com.learning.student.importerservice.test.util.CustomXmlParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

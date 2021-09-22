@@ -1,5 +1,6 @@
 package com.learning.student.importerservice.integration.queue;
 
+import lombok.Setter;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,7 @@ import java.io.File;
  * Sends the Student from an .xml file to student-service. Reads the file on every CREATE/ MODIFY event.
  */
 @Configuration
+@Setter
 public class IntegrationQueueSender {
 
     @Value("${student.file.path}")

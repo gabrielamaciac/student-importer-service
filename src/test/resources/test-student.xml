@@ -1,0 +1,19 @@
+<student>
+    <firstName>TestFirstName</firstName>
+    <lastName>TestLastName</lastName>
+    <cnp>TestCnp</cnp>
+    <dateOfBirth>1987-12-10</dateOfBirth>
+    <address>
+        <street>TestStreet</street>
+        <number>TestNumber</number>
+        <city>TestCity</city>
+        <country>TestCountry</country>
+    </address>
+    <grades>
+        <subject>TestSubject</subject>
+        <marks>
+            <dateReceived>2020-03-12</dateReceived>
+            <mark>10</mark>
+        </marks>
+    </grades>
+</student>

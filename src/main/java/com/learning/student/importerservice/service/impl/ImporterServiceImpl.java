@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ImporterServiceImpl implements ImporterService {
 
-    public final StudentServiceSender studentServiceSender;
+    private final StudentServiceSender studentServiceSender;
 
     public ImporterServiceImpl(StudentServiceSender studentServiceSender) {
         this.studentServiceSender = studentServiceSender;
