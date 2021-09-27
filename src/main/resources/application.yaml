@@ -5,7 +5,6 @@ spring:
   rabbitmq:
     exchange: amq.direct
     studentqueue: student-queue
-    validationqueue: validation-queue
     studentrouting: student-routing-key
 student:
   file:

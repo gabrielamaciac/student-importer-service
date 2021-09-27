@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * Sends the Student from JSON (http request) to student-service.
+ * Sends the Student to student-service via student-queue.
  */
 @Component
 @Slf4j

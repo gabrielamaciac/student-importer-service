@@ -1,4 +1,4 @@
-package com.learning.student.importerservice.test.util;
+package com.learning.student.importerservice.util;
 
 import com.learning.student.importerservice.integration.model.Address;
 import com.learning.student.importerservice.integration.model.Grade;

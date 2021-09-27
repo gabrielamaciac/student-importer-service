@@ -2,7 +2,6 @@ package com.learning.student.importerservice.util;
 
 import com.learning.student.importerservice.integration.model.Student;
 import com.learning.student.importerservice.test.util.AssertionUtils;
-import com.learning.student.importerservice.test.util.CustomXmlParser;
 import com.learning.student.importerservice.test.util.ImporterTestData;
 import org.junit.jupiter.api.Test;
 

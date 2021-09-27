@@ -1,5 +1,6 @@
-package com.learning.student.importerservice.integration.queue;
+package com.learning.student.importerservice.configuration;
 
+import com.learning.student.importerservice.util.XmlToJsonTransformer;
 import lombok.Setter;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Value;

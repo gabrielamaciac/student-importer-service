@@ -3,6 +3,7 @@ package com.learning.student.importerservice.integration.queue;
 import com.learning.student.importerservice.integration.model.Student;
 import com.learning.student.importerservice.test.util.AssertionUtils;
 import com.learning.student.importerservice.test.util.ImporterTestData;
+import com.learning.student.importerservice.util.XmlToJsonTransformer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
