@@ -5,8 +5,6 @@ import com.learning.student.importerservice.test.util.AssertionUtils;
 import com.learning.student.importerservice.test.util.ImporterTestData;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
@@ -20,18 +18,18 @@ class CustomXmlParserTest {
 
     @Test
     void getStudentFromXmlReturnsValidStudent() {
-        customXmlParser = new CustomXmlParser(new File(TEST_FILE_PATH));
+        customXmlParser = new CustomXmlParser();
 
-        Student actualStudent = customXmlParser.getStudentFromXml();
+        Student actualStudent = customXmlParser.getStudentFromXml(TEST_FILE_PATH);
 
         AssertionUtils.assertStudents(expectedStudent, actualStudent);
     }
 
     @Test
     void getStudentFromXmlReturnsNull() {
-        customXmlParser = new CustomXmlParser(new File("invalid file"));
+        customXmlParser = new CustomXmlParser();
 
-        Student actualStudent = customXmlParser.getStudentFromXml();
+        Student actualStudent = customXmlParser.getStudentFromXml("invalid file");
 
         assertNull(actualStudent);
     }

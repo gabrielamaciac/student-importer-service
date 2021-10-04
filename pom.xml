@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
-        <sonar.coverage.exclusions>**/*Configuration.*, **/*Application.*, **/model/**</sonar.coverage.exclusions>
+        <sonar.coverage.exclusions>**/configuration/**, **/*Application.*, **/model/**</sonar.coverage.exclusions>
     </properties>
     <dependencies>
         <!--RabbitMq -->
@@ -137,7 +137,7 @@
                 </executions>
                 <configuration>
                     <excludes>
-                        <exclude>**/*Configuration.*</exclude>
+                        <exclude>**/configuration/**</exclude>
                         <exclude>**/*Application.*</exclude>
                         <exclude>**/model/**</exclude>
                     </excludes>
