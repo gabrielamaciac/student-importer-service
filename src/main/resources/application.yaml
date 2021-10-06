@@ -8,6 +8,6 @@ spring:
     studentrouting: student-routing-key
 student:
   file:
-    path: C:\Users\gabrielamaciac\Documents\GitHub\student
+    path: C:\Users\gabrielamaciac\Documents\GitHub\student\new
     successful: C:\Users\gabrielamaciac\Documents\GitHub\student\successful
     archived: C:\Users\gabrielamaciac\Documents\GitHub\student\archived

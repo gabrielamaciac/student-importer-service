@@ -73,6 +73,6 @@ public class ScheduledQueueSender {
     }
 
     private String constructDestinationFile(String path) {
-        return path + "\\student-" + LocalDateTime.now().toString().replace(":", "") + ".xml";
+        return String.format(path + "\\student_%s.xml", LocalDateTime.now().toString().replace(":", ""));
     }
 }
